@@ -144,7 +144,7 @@ int shell_putchar(char c);
 /* shell_string_functions3.c */
 char *shell_strncpy(char *dest, char *src, int n);
 char *shell_strncat(char *dest, char *src, int n);
-char *shell_strchr(char *s, char c)
+char *shell_strchr(char *s, char c);
 
 /* shell_string_functions4.c */
 char **shell_strtow(char *str, char *delim);
