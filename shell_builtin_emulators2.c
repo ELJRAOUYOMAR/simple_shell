@@ -55,7 +55,7 @@ int set_alias(shell_info_t *info, char *str)
         return (unset_alias(info, str));
 
     unset_alias(info, str);
-    return (add_node_end(&(info->alias), str, 0) == NULL);
+    return (shell_add_node_end(&(info->alias), str, 0) == NULL);
 }
 
 /**

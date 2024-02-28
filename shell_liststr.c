@@ -111,6 +111,6 @@ int delete_node_at_index(shell_list_t **head_ptr, unsigned int index)
 
     if (!index)
     {
-        node = *head
+        node = *head;
     }
 }
