@@ -89,6 +89,7 @@ int shell_mycd(shell_info_t *info)
  */
 int shell_myhelp(shell_info_t *info)
 {
+    (void)info;
     shell_puts("Help message goes here...\n");
     return (0);
 }
