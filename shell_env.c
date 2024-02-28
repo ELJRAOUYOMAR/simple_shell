@@ -80,7 +80,7 @@ int shell_myunsetenv(shell_info_t *info)
  *          constant function prototype.
  * Return: Always 0
  */
-int shell_populate_env_list(shell_info_t *info)
+int populate_env_list(shell_info_t *info)
 {
 	shell_list_t *node = NULL;
 	size_t i;

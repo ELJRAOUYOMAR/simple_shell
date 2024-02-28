@@ -195,7 +195,7 @@ char *shell_getenv(shell_info_t *info, const char *name);
 int shell_myenv(shell_info_t *info);
 int shell_mysetenv(shell_info_t *info);
 int shell_myunsetenv(shell_info_t *info);
-int shell_populate_env_list(shell_info_t *info);
+int populate_env_list(shell_info_t *info);
 
 /* shell_env2.c module */
 char **shell_get_environ(shell_info_t *info);
