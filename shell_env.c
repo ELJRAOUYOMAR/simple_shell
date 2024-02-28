@@ -86,7 +86,7 @@ int populate_env_list(shell_info_t *info)
 	size_t i;
 
 	for (i = 0; environ[i]; i++)
-		shell_add_node_end(&node, environ[i], 0);
+		shell_add_node(&node, environ[i], 0);
 	info->env = node;
 	return (0);
 }

@@ -68,11 +68,11 @@ char *shell_find_path(shell_info_t *info, char *pathstr, char *cmd)
 		{
 			path = shell_dup_chars(pathstr, curr_pos, i);
 			if (!*path)
-				_shell_strcat(path, cmd);
+				shell_strcat(path, cmd);
 			else
 			{
-				_shell_strcat(path, "/");
-				_shell_strcat(path, cmd);
+				shell_strcat(path, "/");
+				shell_strcat(path, cmd);
 			}
 			if (shell_is_cmd(info, path))
 				return (path);

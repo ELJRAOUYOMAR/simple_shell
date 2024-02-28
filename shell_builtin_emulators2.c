@@ -10,7 +10,7 @@
 int my_history(shell_info_t *info)
 {
     /* Print the history list */
-    print_list(info->history);
+    shell_print_list(info->history);
     return (0);
 }
 

@@ -38,7 +38,7 @@ int shell_unsetenv(shell_info_t *info, char *var)
 		p = shell_starts_with(node->str, var);
 		if (p && *p == '=')
 		{
-			info->env_changed = shell_delete_node_at_index(&(info->env), i);
+			info->env_changed = delete_node_at_index(&(info->env), i);
 			i = 0;
 			node = info->env;
 			continue;
@@ -86,7 +86,7 @@ int shell_setenv(shell_info_t *info, char *var, char *value)
 		}
 		node = node->next;
 	}
-	shell_add_node_end(&(info->env), buf, 0);
+	shell_add_node(&(info->env), buf, 0);
 	free(buf);
 	info->env_changed = 1;
 	return (0);
