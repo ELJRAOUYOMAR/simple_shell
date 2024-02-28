@@ -1,6 +1,6 @@
 #include "shell.h"
 
-/**
+/** 
  * shell_is_chain - test if current char in buffer is a chain delimiter
  * @info: the parameter struct
  * @buf: the char buffer
