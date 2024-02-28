@@ -66,7 +66,7 @@ size_t shell_print_list(const shell_list_t *head)
 
 	while (head)
 	{
-		shell_puts(convert_number(head->num, 10, 0));
+		shell_puts(shell_convert_number(head->num, 10, 0));
 		shell_putchar(':');
 		shell_putchar(' ');
 		shell_puts(head->str ? head->str : "(nil)");

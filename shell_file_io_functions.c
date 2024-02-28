@@ -96,7 +96,7 @@ int read_history(shell_info_t *info)
     free(buffer);
     info->histcount = line_count;
     while (info->histcount-- >= SHELL_HIST_MAX)
-        shell_delete_node_at_index(&(info->history), 0);
+        delete_node_at_index(&(info->history), 0);
     shell_renumber_history(info);
     return (info->histcount);
 }

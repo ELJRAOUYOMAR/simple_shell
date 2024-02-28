@@ -211,7 +211,7 @@ int shell_renumber_history(shell_info_t *info);
 
 /* shell_liststr.c module */
 shell_list_t *shell_add_node(shell_list_t **head_ptr, const char *str, int num);
-shell_list_t *add_node_end(shell_list_t **head_ptr, const char *str, int num);
+shell_list_t *shell_add_node_end(shell_list_t **head_ptr, const char *str, int num);
 size_t shell_print_list_str(const shell_list_t *head);
 int delete_node_at_index(shell_list_t **head_ptr, unsigned int index);
 void shell_free_list(shell_list_t **head_ptr);
