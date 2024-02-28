@@ -2,7 +2,7 @@
   
 /**  
  * shell_list_len - determines length of linked list
- * @head: pointer to first node
+ * @head: pointer to first node 
  *
  * Return: size of list
  */
