@@ -182,7 +182,7 @@ int shell_myalias(shell_info_t *info);
 
 /* shell_getline.c module */
 ssize_t shell_get_input(shell_info_t *info);
-int getline(shell_info_t *info, char **ptr, size_t *length);
+int _getline(shell_info_t *info, char **ptr, size_t *length);
 void shell_sigintHandler(__attribute__((unused))int sig_num);
 
 /* shell_info.c module */
