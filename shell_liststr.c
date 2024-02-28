@@ -109,8 +109,30 @@ int delete_node_at_index(shell_list_t **head_ptr, unsigned int index)
     if (!head_ptr || !*head_ptr)
         return (0);
 
-    if (!index)
+    if (index == 0)
     {
-        node = *head;
+        node = *head_ptr;
+        *head_ptr = node->next;
+        free(node->str);
+        free(node);
+        return (1);
     }
+
+    prev_node = *head_ptr;
+    node = prev_node->next;
+
+    while (node && index > 1)
+    {
+        prev_node = node;
+        node = node->next;
+        index--;
+    }
+
+    if (!node)
+        return (0);
+
+    prev_node->next = node->next;
+    free(node->str);
+    free(node);
+    return (1);
 }
