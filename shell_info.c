@@ -6,10 +6,9 @@
  */
 void shell_clear_info(shell_info_t *info)
 {
-	info->arguments = NULL;
-	info->argument_vector = NULL;
-	info->path = NULL;
-	info->argument_count = 0;
+    info->argv = NULL;
+    info->path = NULL;
+    info->argc = 0;
 }
 
 /**
@@ -19,29 +18,25 @@ void shell_clear_info(shell_info_t *info)
  */
 void shell_set_info(shell_info_t *info, char **av)
 {
-	int i = 0;
+    int i = 0;
 
-	info->file_name = av[0];
-	if (info->arguments)
-	{
-		info->argument_vector = strtow(info->arguments, " \t");
-		if (!info->argument_vector)
-		{
-
-			info->argument_vector = malloc(sizeof(char *) * 2);
-			if (info->argument_vector)
-			{
-				info->argument_vector[0] = _strdup(info->arguments);
-				info->argument_vector[1] = NULL;
-			}
-		}
-		for (i = 0; info->argument_vector && info->argument_vector[i]; i++)
-			;
-		info->argument_count = i;
-
-		replace_alias(info);
-		replace_vars(info);
-	}
+    info->fname = av[0];
+    if (info->arg)
+    {
+        info->argv = shell_strtow(info->arg, " \t");
+        if (!info->argv)
+        {
+            info->argv = malloc(sizeof(char *) * 2);
+            if (info->argv)
+            {
+                info->argv[0] = shell_strdup(info->arg);
+                info->argv[1] = NULL;
+            }
+        }
+        for (i = 0; info->argv && info->argv[i]; i++)
+            ;
+        info->argc = i;
+    }
 }
 
 /**
@@ -51,24 +46,21 @@ void shell_set_info(shell_info_t *info, char **av)
  */
 void shell_free_info(shell_info_t *info, int all)
 {
-	ffree(info->argument_vector);
-	info->argument_vector = NULL;
-	info->path = NULL;
-	if (all)
-	{
-		if (!info->command_buffer)
-			free(info->arguments);
-		if (info->environment)
-			free_list(&(info->environment));
-		if (info->history)
-			free_list(&(info->history));
-		if (info->alias)
-			free_list(&(info->alias));
-		ffree(info->environ);
-			info->environ = NULL;
-		bfree((void **)info->command_buffer);
-		if (info->read_file_descriptor > 2)
-			close(info->read_file_descriptor);
-		_putchar(BUF_FLUSH);
-	}
+    shell_ffree(info->argv);
+    info->argv = NULL;
+    info->path = NULL;
+    if (all)
+    {
+        if (!info->cmd_buf)
+            free(info->arg);
+        shell_free_list(&(info->env));
+        shell_free_list(&(info->history));
+        shell_free_list(&(info->alias));
+        shell_ffree(info->environ);
+        info->environ = NULL;
+        shell_bfree((void **)&info->cmd_buf);
+        if (info->readfd > 2)
+            close(info->readfd);
+        shell_putchar(SHELL_BUF_FLUSH);
+    }
 }

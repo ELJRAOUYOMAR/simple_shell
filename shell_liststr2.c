@@ -38,7 +38,7 @@ char **shell_list_to_strings(shell_list_t *head)
 		return (NULL);
 	for (i = 0; node; node = node->next, i++)
 	{
-		str = malloc(_strlen(node->str) + 1);
+		str = malloc(shell_strlen(node->str) + 1);
 		if (!str)
 		{
 			for (size_t j = 0; j < i; j++)
@@ -46,7 +46,7 @@ char **shell_list_to_strings(shell_list_t *head)
 			free(strings);
 			return (NULL);
 		}
-		str = _strcpy(str, node->str);
+		str = shell_strcpy(str, node->str);
 		strings[i] = str;
 	}
 	strings[i] = NULL;
@@ -66,11 +66,11 @@ size_t shell_print_list(const shell_list_t *head)
 
 	while (head)
 	{
-		_puts(convert_number(head->num, 10, 0));
-		_putchar(':');
-		_putchar(' ');
-		_puts(head->str ? head->str : "(nil)");
-		_puts("\n");
+		shell_puts(convert_number(head->num, 10, 0));
+		shell_putchar(':');
+		shell_putchar(' ');
+		shell_puts(head->str ? head->str : "(nil)");
+		shell_puts("\n");
 		head = head->next;
 		count++;
 	}
@@ -91,7 +91,7 @@ shell_list_t *shell_node_starts_with(shell_list_t *head, char *prefix, char c)
 
 	while (head)
 	{
-		p = starts_with(head->str, prefix);
+		p = shell_starts_with(head->str, prefix);
 		if (p && ((c == -1) || (*p == c)))
 			return (head);
 		head = head->next;

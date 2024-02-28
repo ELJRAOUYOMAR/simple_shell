@@ -14,7 +14,7 @@ void shell__eputs(char *err_str)
 		return;
 	while (err_str[index] != '\0')
 	{
-		_eputchar(err_str[index]);
+		shell_eputchar(err_str[index]);
 		index++;
 	}
 }
@@ -79,7 +79,7 @@ int shell__putsfd(char *str, int fd)
 		return (0);
 	while (*str)
 	{
-		count += _putfd(*str++, fd);
+		count += shell_putfd(*str++, fd);
 	}
 	return (count);
 }

@@ -8,7 +8,7 @@
  */
 int shell_myenv(shell_info_t *info)
 {
-	print_list_str(info->env);
+	shell_print_list_str(info->env);
 	return (0);
 }
 

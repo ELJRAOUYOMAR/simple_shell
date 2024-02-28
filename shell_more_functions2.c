@@ -36,13 +36,13 @@ int shell_erratoi(char *s)
  */
 void shell_print_error(shell_info_t *info, char *estr)
 {
-	_eputs(info->fname);
-	_eputs(": ");
+	shell_eputs(info->fname);
+	shell_eputs(": ");
 	shell_print_d(info->line_count, STDERR_FILENO);
-	_eputs(": ");
-	_eputs(info->argv[0]);
-	_eputs(": ");
-	_eputs(estr);
+	shell_eputs(": ");
+	shell_eputs(info->argv[0]);
+	shell_eputs(": ");
+	shell_eputs(estr);
 }
 
 /**
@@ -54,12 +54,12 @@ void shell_print_error(shell_info_t *info, char *estr)
  */
 int shell_print_d(int input, int fd)
 {
-	int (*__putchar)(char) = _putchar;
+	int (*__putchar)(char) = shell_putchar;
 	int i, count = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
-		__putchar = _eputchar;
+		__putchar = shell_eputchar;
 	if (input < 0)
 	{
 		_abs_ = -input;
