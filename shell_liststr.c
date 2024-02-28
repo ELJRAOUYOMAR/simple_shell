@@ -41,7 +41,7 @@ shell_list_t *shell_add_node(shell_list_t **head_ptr, const char *str, int num)
  *
  * Return: pointer to the newly added node
  */
-shell_list_t *shell_add_node_end(shell_list_t **head_ptr, const char *str, int num)
+shell_list_t *add_node_end(shell_list_t **head_ptr, const char *str, int num)
 {
     shell_list_t *new_node, *node;
 
@@ -101,7 +101,7 @@ size_t shell_print_list_str(const shell_list_t *head)
  *
  * Return: 1 on success, 0 on failure
  */
-int shell_delete_node_at_index(shell_list_t **head_ptr, unsigned int index)
+int delete_node_at_index(shell_list_t **head_ptr, unsigned int index)
 {
     shell_list_t *node, *prev_node;
     unsigned int i = 0;

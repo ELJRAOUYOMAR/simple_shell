@@ -106,7 +106,7 @@ shell_list_t *shell_node_starts_with(shell_list_t *head, char *prefix, char c)
  *
  * Return: index of node or -1
  */
-ssize_t shell_get_node_index(shell_list_t *head, shell_list_t *node)
+ssize_t get_node_index(shell_list_t *head, shell_list_t *node)
 {
 	size_t index = 0;
 

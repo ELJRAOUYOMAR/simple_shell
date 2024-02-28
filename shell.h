@@ -182,7 +182,7 @@ int shell_myalias(shell_info_t *info);
 
 /* shell_getline.c module */
 ssize_t shell_get_input(shell_info_t *info);
-int shell_getline(shell_info_t *info, char **ptr, size_t *length);
+int getline(shell_info_t *info, char **ptr, size_t *length);
 void shell_sigintHandler(__attribute__((unused))int sig_num);
 
 /* shell_info.c module */
@@ -205,15 +205,15 @@ int shell_setenv(shell_info_t *info, char *var, char *value);
 /* shell_file_io_functions.c */
 char *shell_get_history_file(shell_info_t *info);
 int shell_write_history(shell_info_t *info);
-int shell_read_history(shell_info_t *info);
+int read_history(shell_info_t *info);
 int shell_build_history_list(shell_info_t *info, char *buf, int line_count);
 int shell_renumber_history(shell_info_t *info);
 
 /* shell_liststr.c module */
 shell_list_t *shell_add_node(shell_list_t **head_ptr, const char *str, int num);
-shell_list_t *shell_add_node_end(shell_list_t **head_ptr, const char *str, int num);
+shell_list_t *add_node_end(shell_list_t **head_ptr, const char *str, int num);
 size_t shell_print_list_str(const shell_list_t *head);
-int shell_delete_node_at_index(shell_list_t **head_ptr, unsigned int index);
+int delete_node_at_index(shell_list_t **head_ptr, unsigned int index);
 void shell_free_list(shell_list_t **head_ptr);
 
 /* shell_liststr2.c module */
@@ -221,14 +221,14 @@ size_t shell_list_len(const shell_list_t *head);
 char **shell_list_to_strings(shell_list_t *head);
 size_t shell_print_list(const shell_list_t *head);
 shell_list_t *shell_node_starts_with(shell_list_t *head, char *prefix, char c);
-ssize_t shell_get_node_index(shell_list_t *head, shell_list_t *node);
+ssize_t get_node_index(shell_list_t *head, shell_list_t *node);
 
 /* shell_chain.c */
 int shell_is_chain(shell_info_t *info, char *buf, size_t *p);
 void shell_check_chain(shell_info_t *info, char *buf, size_t *p, size_t i, size_t len);
 int shell_replace_alias(shell_info_t *info);
 int shell_replace_vars(shell_info_t *info);
-int shell_replace_string(char **old, char *new);
+int replace_string(char **old, char *new);
 
 
 #endif

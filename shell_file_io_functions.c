@@ -58,7 +58,7 @@ int shell_write_history(shell_info_t *info)
  *
  * Return: hist_count on success, 0 otherwise
  */
-int shell_read_history(shell_info_t *info)
+int read_history(shell_info_t *info)
 {
     int i, last = 0, line_count = 0;
     ssize_t file_descriptor, read_length, file_size = 0;
