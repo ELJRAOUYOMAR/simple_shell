@@ -11,7 +11,7 @@ size_t shell_list_len(const shell_list_t *head)
 	size_t count = 0;
 
 	while (head)
-	{
+	{ 
 		head = head->next;
 		count++;
 	}
