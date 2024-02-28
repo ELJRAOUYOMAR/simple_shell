@@ -8,7 +8,7 @@
  *
  * Return: bytes read
  */
-ssize_t buffer_commands(info_t *info, char **buffer, size_t *length)
+ssize_t buffer_commands(shell_info_t *info, char **buffer, size_t *length)
 {
 	ssize_t bytes_read = 0;
 	size_t len_pointer = 0;
