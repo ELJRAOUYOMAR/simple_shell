@@ -104,7 +104,6 @@ size_t shell_print_list_str(const shell_list_t *head)
 int delete_node_at_index(shell_list_t **head_ptr, unsigned int index)
 {
     shell_list_t *node, *prev_node;
-    unsigned int i = 0;
 
     if (!head_ptr || !*head_ptr)
         return (0);

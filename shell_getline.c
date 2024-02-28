@@ -15,7 +15,7 @@ ssize_t buffer_commands(shell_info_t *info, char **buffer, size_t *length)
 
     if (!*length) /* if nothing left in the buffer, fill it */
     {
-        shell_ffree(&buffer);
+        shell_ffree(buffer);
         *buffer = NULL;
         signal(SIGINT, shell_sigintHandler);
 #if SHELL_USE_GETLINE
