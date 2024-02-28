@@ -41,7 +41,8 @@ char **shell_list_to_strings(shell_list_t *head)
 		str = malloc(shell_strlen(node->str) + 1);
 		if (!str)
 		{
-			for (size_t j = 0; j < i; j++)
+			size_t j;
+			for (j = 0; j < i; j++)
 				free(strings[j]);
 			free(strings);
 			return (NULL);
