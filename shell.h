@@ -172,13 +172,13 @@ char *shell_convert_number(long int num, int base, int flags);
 void shell_remove_comments(char *buf);
 
 /* shell_builtin_emulators.c */
-int shell_myexit(shell_info_t *);
-int shell_mycd(shell_info_t *);
-int shell_myhelp(shell_info_t *);
+int shell_myexit(shell_info_t *info);
+int shell_mycd(shell_info_t *info);
+int shell_myhelp(shell_info_t *info);
 
 /* shell_builtin_emulators2.c */
-int shell_myhistory(shell_info_t *);
-int shell_myalias(shell_info_t *);
+int shell_myhistory(shell_info_t *info);
+int shell_myalias(shell_info_t *info);
 
 /* shell_getline.c module */
 ssize_t shell_get_input(shell_info_t *info);

@@ -87,7 +87,7 @@ int printt_alias(shell_list_t *node)
  *          constant function prototype.
  *  Return: Always 0
  */
-int shell_myalias(shell_info_t *);
+int shell_myalias(shell_info_t *info);
 {
     int i = 0;
     char *p = NULL;
